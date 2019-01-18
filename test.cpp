@@ -12,17 +12,17 @@ TEST(EchoTest, EmptyString) {
 	EXPECT_EQ("", echo(1,test_val));
 }
 
-TEST(EchoTest, ThreeWords) {
-	char* test_val[4]; test_val[0] = "./c-echo"; test_val[1] = "What's"; test_val[2] = "Up"; test_val[3] = "Bitches"; 
-	EXPECT_EQ("What's Up Bitches", echo(4, test_val));
+TEST(EchoTest, Numbers) {
+	char* test_val[4]; test_val[0] = "./c-echo"; test_val[1] = "1"; test_val[2] = "2"; test_val[3] = "3"; 
+	EXPECT_EQ("1 2 3", echo(4, test_val));
 }
 TEST(EchoTest, SpecialCharacters) {
-	char* test_val[6]; test_val[0] = "./c-echo"; test_val[1] = "Me"; test_val[2] = "+"; test_val[3] = "Food"; test_val[4] = "="; test_val[5] = "Love";
-	EXPECT_EQ("Me + Food = Love", echo(6,test_val));
+	char* test_val[6]; test_val[0] = "./c-echo"; test_val[1] = "!"; test_val[2] = "@"; test_val[3] = "#"; test_val[4] = "$"; test_val[5] = "%";
+	EXPECT_EQ("! @ # $ %", echo(6,test_val));
 }
-TEST(EchoTest, SpaceLiteral) {
-	char* test_val[4]; test_val[0] = "./c-echo"; test_val[1] = "hello"; test_val[2] = " "; test_val[3] = "world";
-	EXPECT_EQ("hello   world", echo(4,test_val));
+TEST(EchoTest, EmptyStringWord) {
+	char* test_val[3]; test_val[0] = "./c-echo"; test_val[1] = ""; test_val[2] = "Word";
+	EXPECT_EQ(" Word", echo(3,test_val));
 }
 int main(int argc, char **argv) {
 	::testing::InitGoogleTest(&argc, argv);
